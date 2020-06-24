@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>final operation</title>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/font-awesome.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-3.3.1.js"></script>
+    <script src="../Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="../JS/Site/pages/operationbulletin.js"></script>
+    <link href="../CSS/Site/Menubar.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../JS/Site/Menubar/Menubar.js"></script>
+    <script src="../JS/SmvInterfaceCommonPath.js"></script>
+    <script src="../JS/commonajaxservermethod.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.7/flatpickr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    <script src='https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+    <script src="../JS/jspdf.js"></script>
+    <link href="../Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.7/flatpickr.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+
+    <style>
+        body, html {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+
+        <div id="menubar" onload="LoadMenubar()">
+
+        </div>
+    </nav>
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="col-lg-5">
+                <input id="printButton" type="button" value="Pdf Generator" onclick="InsertOperationBulletin()" />
+
+            </div>
+            <div class="col-lg-12">
+                <input id="printButton" type="button" value="Add Style" data-toggle="modal" data-target="#addStyleModal" />
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-12">
+                    <h3>Operation Bulletin</h3>
+                </div>
+
+                <div class="col-lg-12" id="finalcomponent" onload="getfinalcomponentdata()">
+                </div>
+                <!--<div class="col-lg-12" id="pdfcomponent" onload="pdfcomponentdata()" style="display:none">
+                </div>-->
+            </div>
+
+            <!-- edit Operation Modal Start-->
+            <div class="modal fade" id="editOperationModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Operation Editor</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--<div class="form-group">
+                                <label for="componentStageText"><b>Operation:</b></label>
+                                <input id="operationText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Component Stage" />
+                            </div>-->
+                            <div class="form-group">
+                                <label for="smvText"><b>Smv Value:</b></label>
+                                <input id="smvText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Smv Value" />
+                            </div>
+                            <div class="form-group">
+                                <label for="machineText"><b>Machine:</b></label>
+                                <input id="machineText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Machine" />
+                            </div>
+                            <div class="form-group">
+                                <label for="commentText"><b>Comment:</b></label>
+                                <input id="commentText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Comment" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="UpdateData()" data-dismiss="modal">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--edit Operation Modal End-->
+            <!-- Add Operation Modal Start-->
+            <div class="modal fade" id="addOperationModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addModalLabel">Operation Add</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="addOperationText"><b>Operation Name:</b></label>
+                                <input id="addOperationText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Operation Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="addSmvText"><b>Smv Value:</b></label>
+                                <input id="addSmvText" type="number" class="form-control" Columns="133" Rows="2" placeholder="Smv Value" />
+                            </div>
+                            <div class="form-group">
+                                <label for="addmachineText"><b>Machine:</b></label>
+                                <input id="addmachineText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Machine" />
+                            </div>
+                            <div class="form-group">
+                                <label for="addcommentText"><b>Comment:</b></label>
+                                <input id="addcommentText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Comment" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addData()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Add Operation Modal End-->
+            <!-- Add Style number and design number Start-->
+            <div class="modal fade" id="addStyleModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addModalLabel">Style Number Add</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="styleText"><b>Style Number:</b></label>
+                                <input id="styleText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Style Number" />
+                            </div>
+                            <div class="form-group">
+                                <label for="designText"><b>Design Number:</b></label>
+                                <input id="designText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Design Number" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sampleDateText"><b>Sample Date:</b></label>
+                                <input id="sampleDateText" type="text" class="form-control flatpicker" Columns="133" Rows="2" placeholder="dd/mm/yyyy" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SampleStageSelect"><b>Sample Stage:</b></label>
+                                <input id="SampleStageSelect" type="text" class="form-control" Columns="133" Rows="2" placeholder="Design Number" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SeasonSelect"><b>Season:</b></label>
+                                <input id="SeasonSelect" type="text" class="form-control flatpicker" Columns="133" Rows="2" placeholder="Season" />
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addStyle()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Add Operation Modal End-->
+
+
+        </div>
+    </div>
+</body>
+</html>

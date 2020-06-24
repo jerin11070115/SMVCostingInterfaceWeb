@@ -1,0 +1,206 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+}
+#container {
+    position: fixed;
+    top: 25%;
+    left: 25%;
+}
+  .bg {
+  /* The image used */
+  background-image: url("images/469_ELLE10_ENRIQUE-5-e1473800997263.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+#navbar {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: #3B444B;
+    position: relative;
+    cursor: pointer;
+}
+
+    #navbar li {
+        display: inline-block;
+        color: #F1F1F1;
+        text-decoration: wavy;
+        padding: 15px;
+        min-width: 100px;
+        text-align:center;
+    }
+
+        #navbar li:hover {
+            background-color: #708090;
+            padding: 15px;
+        }
+
+#subnav {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    background-color: #666666;
+    top: 54px;
+    z-index:5;
+    text-align: center;
+    margin-left:-15px; 
+}
+
+    #subnav li {
+        display: block;
+        background-color: #666666;
+    }
+
+#navbar li:hover #subnav {
+    display: block;
+}
+
+#subsubnav, #itemnav, #subitemnav, #subsubitemnav {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    background-color: #666666;
+    margin-left: 185px;
+    text-align: center;
+    margin-top: -39px;
+}
+
+    #subsubnav li {
+        display: block;
+        background-color: #666666;
+    }
+
+#subnav li:hover #subsubnav {
+    display: block;
+}
+
+#itemnav li {
+    display: block;
+    background-color: #666666;
+}
+
+#subsubnav li:hover #itemnav {
+    display: block;
+}
+
+#subitemnav li {
+    display: block;
+    background-color: #666666;
+}
+
+#itemnav li:hover #subitemnav {
+    display: block;
+}
+.carousel-item {
+  height: 100vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#carouselExampleIndicators{
+    /*margin-top:50px;*/
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0; /* make things invisible upon start */
+    -webkit-animation: fadeIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+    .fade-in.one {
+        -webkit-animation-delay: 0.7s;
+        -moz-animation-delay: 0.7s;
+        animation-delay: 0.7s;
+    }
+
+    .fade-in.two {
+        -webkit-animation-delay: 1.2s;
+        -moz-animation-delay: 1.2s;
+        animation-delay: 1.2s;
+    }
+
+    .fade-in.three {
+        -webkit-animation-delay: 1.6s;
+        -moz-animation-delay: 1.6s;
+        animation-delay: 1.6s;
+    }
+
+    .fade-in.four {
+        -webkit-animation-delay: 2.1s;
+        -moz-animation-delay: 2.1s;
+        animation-delay: 2.1s;
+    }
+
+/*---make a basic box ---*/
+.box {
+    width: 200px;
+    height: 400px;
+    position: relative;
+    margin: 10px;
+    float: left;
+    border: 1px solid #333;
+    background: #999;
+}

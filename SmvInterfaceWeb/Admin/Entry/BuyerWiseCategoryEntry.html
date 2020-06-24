@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buyer-Category</title>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="../../CSS/Admin/Entry/buyercategory.css" rel="stylesheet"  type="text/css"/>
+    <script src="../../Scripts/jquery-3.3.1.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+
+    <script src="../../JS/Admin/Entry/buyercategory.js"></script>
+    <script src="../../JS/SmvInterfaceCommonPath.js"></script>
+    <script src="../../JS/commonajaxservermethod.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+</head>
+
+<body>
+    <div class="col-lg-12">
+        <h1>Buyer Category</h1>
+    </div>
+    <div class="col-lg-12">
+        <hr />
+    </div>
+    <div class="col-lg-12">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="BuyerCategoryText"><b>Buyer Category Name:</b></label>
+                <input id="BuyerCategoryText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Buyer Category Name" />
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="BuyerSelect"><b>Buyer:</b></label>
+                <select id="BuyerSelect" class="form-control" Columns="133" Rows="2" onload="getbuyer()">
+                    <option value="0">Please Select A Buyer</option>
+                </select>
+            </div>
+        </div>
+
+        <!--<div class="col-lg-3">
+            <div class="form-group">
+                <label for="SampleStageSelect"><b>Sample Stage:</b></label>
+                <select id="SampleStageSelect" class="form-control" Columns="133" Rows="2">
+                    <option value="0">Please Select A Sample Stage</option>
+                </select>
+            </div>
+        </div>-->
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="IsActiveSelect"><b>IsActive:</b></label>
+                <select id="IsActiveSelect" class="form-control" Columns="133" Rows="2">
+                    <option value="0">NO</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <input id="submitButton" type="button" value="Submit" class="btn btn-success" onclick="AddBuyerCategory()" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

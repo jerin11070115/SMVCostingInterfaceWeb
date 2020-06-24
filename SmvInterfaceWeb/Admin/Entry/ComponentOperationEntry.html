@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Operation Entry</title>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/font-awesome.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-3.3.1.js"></script>
+    <script src="../../JS/Admin/Entry/buyercategory.js"></script>
+    <script src="../../JS/Admin/Entry/BuyerComponent.js"></script>
+    <script src="../../JS/Admin/Entry/componentstage.js"></script>
+    <script src="../../JS/Admin/Entry/ComponentOperation.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../JS/SmvInterfaceCommonPath.js"></script>
+    <script src="../../JS/commonajaxservermethod.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+</head>
+<body class="container">
+    <div class="col-lg-12">
+        <h1>Component Operation Entry</h1>
+    </div>
+    <div class="col-lg-12">
+        <hr />
+    </div>
+    <div class="col-lg-12">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="OperationText"><b>Operation:</b></label>
+                <input id="OperationText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Operation Name" />
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="smvText"><b>Smv:</b></label>
+                <input id="smvText" type="number" class="form-control" Columns="133" Rows="2" placeholder="SMV Value" />
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="MachineText"><b>Machine:</b></label>
+                <input id="MachineText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Machine" />
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="BuyerSelect"><b>Buyer:</b></label>
+                <select id="BuyerSelect" class="form-control" Columns="133" Rows="2" onload="getbuyer()" onchange="LoadBuyerCategory(),LoadBuyerComponent()"></select>
+            </div>
+        </div>
+
+        <!--<div class="col-lg-3">
+        <div class="form-group">
+            <label for="SampleStageSelect"><b>Sample Stage:</b></label>
+            <select id="SampleStageSelect" class="form-control" Columns="133" Rows="2" onchange="LoadBuyerCategory()">
+                <option value="0">Please Select A Sample Stage</option>
+            </select>
+        </div>
+    </div>-->
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="BuyerCategorySelect"><b>Buyer Category :</b></label>
+                <select id="BuyerCategorySelect" class="form-control" Columns="133" Rows="2" onchange="LoadBuyerComponent()">
+                    <option value="0">Please Select Buyer Category</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="BuyerComponentSelect"><b>Component :</b></label>
+                <select id="BuyerComponentSelect" class="form-control" Columns="133" Rows="2" onchange="LoadBuyerComponentStage()">
+                    <option value="0">Please Select Component</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="BuyerComponentStageSelect"><b>Component Stage:</b></label>
+                <select id="BuyerComponentStageSelect" class="form-control" Columns="133" Rows="2" onchange="LoadBuyerComponentSubStage()">
+                    <option value="0">Select Component Stage</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="BuyerComponentSubStageSelect"><b>Component Sub Stage:</b></label>
+                <select id="BuyerComponentSubStageSelect" class="form-control" Columns="133" Rows="2">
+                    <option value="0">Select Component Sub Stage</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="IsActiveSelect"><b>IsActive:</b></label>
+                <select id="IsActiveSelect" class="form-control" Columns="133" Rows="2">
+                    <option value="0">NO</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="uploadPdfFile"><b>Upload GSD:</b></label>
+                <input id="uploadPdfFile" type="file" class="form-control" accept="application/pdf" Columns="133" Rows="2" />
+            </div>
+        </div>
+        <!--<div class="col-lg-3">
+            <div class="form-group">
+                <label for="uploadVideoFile"><b>Upload Video:</b></label>
+                <input id="uploadVideoFile" type="file" class="form-control" accept="video/mp4,video/x-m4v,video/*" Columns="133" Rows="2"/>
+            </div>
+        </div>-->
+
+            <div class="col-lg-3">
+                <input id="submitButton" type="button" value="Submit" class="btn btn-success" onclick="AddComponentOperation()" />
+            </div>
+        </div>
+</body>
+</html>

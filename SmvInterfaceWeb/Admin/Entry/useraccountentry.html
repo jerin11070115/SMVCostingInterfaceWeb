@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../../vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-3.3.1.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="../../JS/Admin/Entry/useraccount.js"></script>
+    <script src="../../JS/commonajaxservermethod.js"></script>
+    <script src="../../JS/SmvInterfaceCommonPath.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+</head>
+<body>
+    <div class="col-lg-12">
+        <h1>User Entry Panel</h1>
+    </div>
+    <div class="col-lg-12">
+        <hr />
+    </div>
+    <div class="col-lg-12">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="fullNameText"><b>Full Name:</b></label>
+                <input id="fullNameText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Full Name" />
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="userNameText"><b>User Name:</b></label>
+                <input id="userNameText" type="text" class="form-control" Columns="133" Rows="2" placeholder="User Name" />
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="passwordText"><b>Password:</b></label>
+                <input id="passwordText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Password" />
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="IsActiveSelect"><b>IsActive:</b></label>
+                <select id="IsActiveSelect" class="form-control" Columns="133" Rows="2">
+                    <option value="0">NO</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <input id="submitButton" type="button" value="Submit" class="btn btn-success" onclick="adduser()" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

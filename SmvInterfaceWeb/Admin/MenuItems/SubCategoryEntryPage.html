@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sub Category</title>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-3.3.1.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../JS/Admin/MenuItem/SubCategoryEntry.js"></script>
+    <script src="../../JS/commonajaxservermethod.js"></script>
+    <script src="../../JS/SmvInterfaceCommonPath.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+</head>
+<body>
+    <div class="col-lg-12">
+        <div class="col-lg-12">
+            <h1>Sub Category Entry</h1>
+        </div>
+        <div class="col-lg-12">
+            <hr />
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="subCategoryText"><b>Sub Category Name:</b></label>
+                    <input id="subCategoryText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Sub Category Name" />
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="CategorySelect"><b>Category:</b></label>
+                    <select id="CategorySelect" class="form-control" Columns="133" Rows="2" onload="LoadCategory()">                      
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="IsActiveSelect"><b>IsActive:</b></label>
+                    <select id="IsActiveSelect" class="form-control" Columns="133" Rows="2">
+                        <option value="0">NO</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <input id="submitButton" type="button" value="Submit" class="btn btn-success" onclick="AddSubCategory()" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="col-lg-12">
+            <h2>Sub Category Table</h2>
+            <input id="showButton" type="button" value="Show Table" onclick="LoadSubCategoryTable()" />
+        </div>
+        <div class="col-lg-12" id="loadSubCategoryTable"></div>
+    </div>
+</body>
+</html>

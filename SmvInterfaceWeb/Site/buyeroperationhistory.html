@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Buyer History</title>
+    <!--<link href="../Content/bootstrap.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="../Content/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="../CSS/Site/SiteBuyer.css" rel="stylesheet" type="text/css" />
+    <link href="../CSS/Site/Menubar.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../JS/Site/pages/buyerpage.js"></script>
+    <script src="../JS/Site/Menubar/Menubar.js"></script>
+    <script src="../JS/Site/pages/BuyerOperationHistory.js"></script>
+    <script src="../JS/Admin/Entry/buyermapping.js"></script>
+    <script src="../JS/SmvInterfaceCommonPath.js"></script>
+    <script src="../JS/commonajaxservermethod.js"></script>
+    <script src="../Scripts/jquery-ui-1.12.1.js"></script>
+    <script src='https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+    <link href="../Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+    <style>
+        body, html {
+            background-color: #CCCCCC;
+        }
+        .modal-dialog {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: auto;
+            min-height: 100%;
+            border-radius: 0;
+        }
+        #showDetailsTable {
+            margin-top: 35px;
+        }
+        /*.btn fa-search btn-primary{
+            transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+        }*/
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="menubar" onload="LoadMenubar()">
+        </div>
+    </nav>
+    <div class="col-lg-6">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label for="buyerSelect"><b>Buyer:</b></label>
+                <select id="buyerSelect" class="form-control" Columns="133" Rows="2" onload="getbuyer()"></select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label for="styleText"><b>Style Number:</b></label>
+                <input id="styleText" type="text" class="form-control" Columns="133" Rows="2" placeholder="Style Number" />
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <input style="margin-top:25px;" id="SubmitBtn" type="button" value="Search" class="btn fa-search btn-primary" onclick="LoadSummaryData()"/>
+        </div>
+    </div>
+
+
+    <div class="col-lg-12" id="dataSummary">
+
+    </div>
+
+
+
+    <!-- edit Operation Modal Start-->
+    <div class="col-lg-12 modal fade" id="ShowDataModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12" id="showDetailsTable"></div>
+                </div>
+                <div class="modal-footer" id="modalfooter">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--edit Operation Modal End-->
+
+</body>
+</html>
